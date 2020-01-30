@@ -1,26 +1,9 @@
-# 习题6.7表格打印
-tableData = [['apples', 'oranges', 'cherries', 'banana'],
-             ['Alice', 'Bob', 'Carol', 'David'],
-             ['dogs', 'cats', 'moose', 'goose']]
+# 习题7.18.2 strip()的正则表达式
 
-def printTable(tableData):
-    colwidths = [0] * len(tableData)
-    for i in range(len(tableData)):
-        a = [0] * len(tableData[i])
-        for j in range(len(tableData[i])):
-            a[j] = len(tableData[i][j])
-        a.sort(reverse=True)
-        print(a)
-        colwidths[i] = a[0]
-    print(colwidths)
-    
-    for j in range(4):
-        for i in range(len(tableData)):
-            print(tableData[i][j].rjust(colwidths[i]) + ' ', end='')
-        print('\n', end='')
+import re
 
-printTable(tableData)
+def strip_manual(str_case, str_design=None):
+    print('No error')
 
-
-# import numpy as np 
-# print(np.max([1, 2]))
+stripRegex = re.compile(r'(\S+)')
+print(stripRegex.findall(' Hello worlld Hel_lo'))
